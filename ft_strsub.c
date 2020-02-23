@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 19:26:18 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 16:07:45 by fjankows         ###   ########.fr       */
+/*   Created: 2020/02/22 16:17:38 by fjankows          #+#    #+#             */
+/*   Updated: 2020/02/22 18:00:52 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	int		diff;
+	char	*new;
 
-	i = 0;
-	while (i < n)
-	{
-		diff = (unsigned char)s1[i] - (unsigned char)s2[i];
-		if (diff != 0)
-			return (diff);
-		if (!s1[i] && !s2[i])
-			return (0);
-		++i;
-	}
-	return (0);
+	if (!(new = malloc(len + 1)))
+		return (NULL);
+	ft_memcpy(new, s + start, len);
+	new[len] = '\0';
+	return (new);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 19:26:18 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 16:07:45 by fjankows         ###   ########.fr       */
+/*   Created: 2020/02/22 16:22:34 by fjankows          #+#    #+#             */
+/*   Updated: 2020/02/22 17:59:36 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	int		diff;
+	int		one;
+	int		two;
+	char	*res;
 
-	i = 0;
-	while (i < n)
-	{
-		diff = (unsigned char)s1[i] - (unsigned char)s2[i];
-		if (diff != 0)
-			return (diff);
-		if (!s1[i] && !s2[i])
-			return (0);
-		++i;
-	}
-	return (0);
+	if (!s1 || !s2)
+		return (NULL);
+	one = ft_strlen(s1);
+	two = ft_strlen(s2);
+	if (!(res = malloc(one + two + 1)))
+		return (NULL);
+	ft_memcpy(res, s1, one);
+	ft_memcpy(res + one, s2, two);
+	res[one + two] = '\0';
+	return (res);
 }

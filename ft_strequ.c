@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 19:26:18 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 16:07:45 by fjankows         ###   ########.fr       */
+/*   Created: 2020/02/22 16:02:48 by fjankows          #+#    #+#             */
+/*   Updated: 2020/02/22 17:59:43 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t	i;
-	int		diff;
-
-	i = 0;
-	while (i < n)
-	{
-		diff = (unsigned char)s1[i] - (unsigned char)s2[i];
-		if (diff != 0)
-			return (diff);
-		if (!s1[i] && !s2[i])
-			return (0);
-		++i;
-	}
-	return (0);
+	if (!s1 || !s2)
+		return (-1);
+	if (!ft_strcmp(s1, s2))
+		return (1);
+	else
+		return (0);
 }
