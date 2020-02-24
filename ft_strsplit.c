@@ -6,32 +6,32 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:46:56 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 18:01:46 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/24 12:11:32 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*search_for_substr_end(char *s, char c, char *res[], int *i)
+static char	*search_for_substr_end(char *s, char c, char *res[], int *elements)
 {
-	char	*t;
+	int		i;
 
-	t = s + 1;
-	while (1)
+	if (!s || !*s)
 	{
-		if (*t == c || *t == '\0')
-		{
-			if (!(res[*i] = malloc(t - s + 1)))
-				return (NULL);
-			ft_memcpy(res[*i], s, t - s);
-			res[*i][t - s] = '\0';
-			if (++(*i) == 255)
-				return (NULL);
-			s = t;
-			break ;
-		}
-		++t;
+		return (NULL);
 	}
+	i = 1;
+	while (s[i] != c && s[i] != '\0')
+	{
+		++i;
+	}
+	if (!(res[*elements] = malloc(i + 1)))
+		return (NULL);
+	ft_memcpy(res[*elements], s, i);
+	res[*elements][i] = '\0';
+	if (++(*elements) == 255)
+		return (NULL);
+	s += i;
 	return (s);
 }
 
@@ -46,16 +46,17 @@ char		**ft_strsplit(char const *s, char c)
 		return (NULL);
 	while (*s)
 	{
-		if (*s != c)
+		if (*s == c)
 		{
-			s = search_for_substr_end((char *)s, c, res, &i);
-			if (s == NULL)
+			++s;
+		}
+		else if (*s != '\0')
+		{
+			if (!(s = search_for_substr_end((char *)s, c, res, &i)))
 				return (NULL);
 		}
-		++s;
 	}
-	ret = (char**)malloc(sizeof(char*) * (i + 1));
+	ret = (char**)ft_memalloc(sizeof(char*) * (i + 1));
 	ft_memcpy(ret, res, sizeof(char*) * i);
-	ret[i] = NULL;
 	return (ret);
 }

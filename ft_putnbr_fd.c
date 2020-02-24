@@ -6,7 +6,7 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:27:17 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 19:32:22 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:49:21 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	get_len(int n)
 static void	write_output_fd(int n, int len, int negative, int fd)
 {
 	if (negative)
-		ft_putchar('-');
+		ft_putchar_fd('-', fd);
 	while (len)
 	{
 		ft_putchar_fd(get_digit(n, --len, negative), fd);

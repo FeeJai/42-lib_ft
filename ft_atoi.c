@@ -6,7 +6,7 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 11:02:26 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 12:54:46 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:41:23 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ static const char	*skip_white_and_check_neg(const char *str, int *negative)
 	if (*str == '-')
 	{
 		*negative = 1;
+		str++;
+	}
+	else if (*str == '+')
+	{
 		str++;
 	}
 	return (str);
