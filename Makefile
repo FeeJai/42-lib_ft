@@ -6,7 +6,7 @@
 #    By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/18 18:31:57 by fjankows          #+#    #+#              #
-#    Updated: 2020/02/24 13:29:04 by fjankows         ###   ########.fr        #
+#    Updated: 2020/02/24 16:28:25 by fjankows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 SOURCES = ./libft.h
 INC = -I.
-CFILES = part1/*.c part2/*.c part3/*.c
+#CFILES = part1/*.c part2/*.c part3/*.c
+CFILES = *.c
 
 NAME = libft.a
 
@@ -26,12 +27,18 @@ $(NAME):
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
+copy:
+	cp part*/*.c .
+
+all: copy $(NAME)
 
 clean:
 	rm -f *.o
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
+
+cclean:
+	rm -f *.c
 
 re: fclean all
