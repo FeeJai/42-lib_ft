@@ -6,7 +6,7 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 12:57:24 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/24 13:11:42 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/25 18:34:58 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 
 	if (!content)
 		content_size = 0;
-	new = ft_memalloc(sizeof(t_list));
-	new->content = (void *)content;
+	if (!(new = ft_memalloc(sizeof(t_list))))
+		return (NULL);
+	if (content)
+	{
+		if (!(new->content = ft_memalloc(content_size)))
+			return (NULL);
+		ft_memcpy(new->content, content, content_size);
+	}
 	new->content_size = content_size;
 	return (new);
 }
