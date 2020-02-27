@@ -6,7 +6,7 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 12:43:18 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 12:46:45 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:21:07 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int		ft_isprint(int c)
 	if (c >= 040 && c <= 077)
 		return (1);
 	if (c >= 0100 && c <= 0176)
-		return (2);
+		return (1);
 	return (0);
 }

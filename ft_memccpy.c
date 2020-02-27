@@ -6,11 +6,11 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 10:54:06 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 10:54:16 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:12:35 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {

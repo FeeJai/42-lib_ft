@@ -6,12 +6,11 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 11:02:26 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/24 11:41:23 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:09:32 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
 static const char	*skip_white_and_check_neg(const char *str, int *negative)
 {

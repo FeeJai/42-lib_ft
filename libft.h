@@ -6,7 +6,7 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:09:52 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/24 13:21:50 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:30:01 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+
+# define INT_MAX +2147483647
 
 typedef struct	s_list
 {
@@ -83,4 +85,9 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+int				ft_isblank(int c);
+int				ft_iscntrl(int c);
+int				ft_isgraph(int c);
+int				ft_islower(int c);
+int				ft_isupper(int c);
 #endif

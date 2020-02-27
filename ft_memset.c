@@ -6,11 +6,11 @@
 /*   By: fjankows <fjankows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 18:12:34 by fjankows          #+#    #+#             */
-/*   Updated: 2020/02/22 15:47:47 by fjankows         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:12:44 by fjankows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
